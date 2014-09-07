@@ -21,6 +21,7 @@ public class LoginServlet extends HttpServlet{
 	private static Logger log = Logger.getLogger(LoginServlet.class.getName());
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{	
+		//123
 		response.setContentType("text/html");
 		response.setCharacterEncoding("utf-8");
 		String emailID = request.getParameter("emailIDLogin");
