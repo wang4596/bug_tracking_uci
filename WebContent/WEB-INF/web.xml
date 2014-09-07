@@ -49,4 +49,14 @@
     <servlet-name>ForgetPassServlet</servlet-name>
     <url-pattern>/ForgetPassServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>createTicketServlet</display-name>
+    <servlet-name>createTicketServlet</servlet-name>
+    <servlet-class>com.servlet.createTicketServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>createTicketServlet</servlet-name>
+    <url-pattern>/createTicketServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
