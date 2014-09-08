@@ -1,4 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- 	
+		Team D Bug Tracker Project
+		8/28/2014  	Saurabh Pandit 		Created File
+		9/6/2014	Melissa Stratton	Added links for OpenTicketsServlet and AssignedTicketsServlet
+-->
+		 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
        pageEncoding="ISO-8859-1"%>
 <%@page import="com.db.dao.UserDAO"%>
@@ -25,7 +32,9 @@
 %>
 	<p>Welcome <%=currentUser.getFirstName()%>, <%=currentUser.getLastName()%></p>
 	<a href='Logout.jsp'>Log out</a><br />
-	<a href='createTicket.jsp'>Create Ticket</a>
+	<a href='createTicket.jsp'>Create Ticket</a><br>
+	<a href="OpenTicketsServlet">View All Open Tickets</a><br>
+	<a href='AssignedTicketsServlet'>View Your Assigned Tickets</a>
 <%
     }
 %>

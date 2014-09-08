@@ -1,3 +1,9 @@
+/*
+ * Team D Bug Tracker Project
+ * 9/7/2014		Hema Omprakash					Created file.
+ * 9/7/2014		Melissa Stratton		Added getAssignee and setAssignee.
+ */
+
 package com.beans;
 
 public class TicketBean {
@@ -10,6 +16,7 @@ public class TicketBean {
 		private String description;
 		private String createdBy;
 		private String updatedBy;
+		private String assignee;
 		
 		public int getId() {
 			return id;
@@ -58,5 +65,11 @@ public class TicketBean {
 		}
 		public void setUpdatedBy(String updatedBy) {
 			this.updatedBy = updatedBy;
+		}
+		public String getAssignee() {
+			return assignee;
+		}
+		public void setAssignee(String assignee) {
+			this.assignee = assignee;
 		}
 }

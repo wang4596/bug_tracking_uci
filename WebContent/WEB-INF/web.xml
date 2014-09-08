@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--  
+		Team D Bug Tracker Project
+		8/28/2014  	Saurabh Pandit 		Created File
+		9/7/2014	Hema Omprakash	Added createTicketServlet
+		9/7/2014	Melissa Stratton	Added OpenTicketsServlet and AssignedTicketsServlet
+		
+-->
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>BugTracker</display-name>
   <welcome-file-list>
@@ -58,5 +65,25 @@
   <servlet-mapping>
     <servlet-name>createTicketServlet</servlet-name>
     <url-pattern>/createTicketServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OpenTicketsServlet</display-name>
+    <servlet-name>OpenTicketsServlet</servlet-name>
+    <servlet-class>com.servlet.OpenTicketsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OpenTicketsServlet</servlet-name>
+    <url-pattern>/OpenTicketsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AssignedTicketsServlet</display-name>
+    <servlet-name>AssignedTicketsServlet</servlet-name>
+    <servlet-class>com.servlet.AssignedTicketsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AssignedTicketsServlet</servlet-name>
+    <url-pattern>/AssignedTicketsServlet</url-pattern>
   </servlet-mapping>
 </web-app>

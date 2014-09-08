@@ -1,6 +1,13 @@
  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
        pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- 	
+		Team D Bug Tracker Project
+		8/28/2014  	Saurabh Pandit 		Created File
+		9/7/2014	Melissa Stratton	Changed Team Lead role to Developer
+-->
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -61,7 +68,7 @@ function validateLogin(){
 					<label >Role:* </label>
 	            		<select id="roleSelect" name="roleSelect">
 	            			<option value="Help Desk">Help Desk</option>
-	            			<option value="team Lead">Team Lead</option>
+	            			<option value="Developer">Developer</option>
 	        			</select><br />
 					Submit: <input type="submit" value="submit" onclick="validateRegistrationForm();return false"/>	<input type ="reset" value="Clear Form">
 				</form>
