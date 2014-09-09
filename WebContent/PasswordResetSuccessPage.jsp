@@ -12,7 +12,7 @@
 		String msg = request.getAttribute("SUCCESS_MSG").toString();
 		%>
 		<div>
-		<%="Password reset success: "+ msg%>
+		<p><%="Password reset update: "+ msg%></p>
 		</div>
 		<br /><a href='LoginPage.jsp'>Log in</a><br />
 		<%

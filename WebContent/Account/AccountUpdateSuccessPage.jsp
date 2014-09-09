@@ -21,28 +21,23 @@
 	if ((request.getAttribute("UPDATE_MSG") != null)) {
 		String msg = request.getAttribute("UPDATE_MSG").toString();
 		%>
+		<table align = "center" width="70%" border="1">
+		<tr>
+			<td><a href='/BugTracker/HomePage.jsp'>Home Page</a></td>
+			<td><a href='/BugTracker/Account/AccountUpdate.jsp'>Update Account Details</a></td>
+			<td><a href='/BugTracker/Logout.jsp'>Log out</a><br /></td>
+			</tr>
+		</table>
 		<div>
-		<h2><%="Update status: "+ msg%></h2>
+		<h4 align = "center"><%="Update status: "+ msg%></h4>
+		</tr>
 		</div>
-		<a href='/BugTracker/HomePage.jsp'>Home Page</a><br />
-		<a href='/BugTracker/Account/AccountUpdate.jsp'>Update Account Details</a><br />
-		<a href='/BugTracker/Logout.jsp'>Log out</a><br />
-		<table>
-			<tr>
-				<td><h2>Account Details:</h2></td>
-			</tr>
-			<tr>
-				<td><label>First Name: <%=currentUser.getFirstName()%></label></td>
-			</tr>
-			<tr>
-			<td><label>Last Name: <%=currentUser.getLastName()%></label></td>
-			</tr>
-			<tr>
-			<td><label id="emailIDLabel">Email: <%=currentUser.getEmailID()%></label></td>
-			</tr>
-			<tr>
-			<td><label> Role: <%=currentUser.getRole()%></label></td>
-			</tr>
+		<table width="70%" border="1" cellpadding="10" cellspacing="10" align="center" >
+			<h4 align="center">Account Details:</h4>
+			<tr><td align="left"><label>First Name: </td><td><%=currentUser.getFirstName()%></label></td></tr>
+			<tr><td align="left"><label>Last Name: </td><td><%=currentUser.getLastName()%></label></td></tr>
+			<tr><td align="left"><label id="emailIDLabel">Email: </td><td><%=currentUser.getEmailID()%></label></td></tr>
+			<tr><td align="left"><label> Role: </td><td><%=currentUser.getRole()%></label></td></tr>
 		</table>
 		<%
 	}

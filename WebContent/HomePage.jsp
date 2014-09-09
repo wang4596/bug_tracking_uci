@@ -30,12 +30,16 @@
 	UserBean currentUser = UserDAO.getUser(session.getAttribute("emailID").toString());
 	
 %>
-	<p>Welcome <%=currentUser.getFirstName()%>, <%=currentUser.getLastName()%></p>
-	<a href='Logout.jsp'>Log out</a><br />
-	<a href='createTicket.jsp'>Create Ticket</a><br>
-	<a href="OpenTicketsServlet">View All Open Tickets</a><br>
-	<a href='AssignedTicketsServlet'>View Your Assigned Tickets</a><br />
-	<a href='/BugTracker/Account/AccountUpdate.jsp'>Update Account Details</a>
+	<table align = "center" width="70%" border="1">
+		<tr>			
+			<td align ='center'><a href='createTicket.jsp'>Create Ticket</a></td>
+			<td align ='center'><a href="OpenTicketsServlet">View All Open Tickets</a></td>
+			<td align ='center'><a href='AssignedTicketsServlet'>View Your Assigned Tickets</a></td>
+			<td align ='center'><a href='/BugTracker/Account/AccountUpdate.jsp'>Update Account Details</a></td>
+			<td align ='center'><a href='Logout.jsp'>Log out</a></td>
+		</tr>
+	</table>
+	<p align="center">Welcome <%=currentUser.getFirstName()%>, <%=currentUser.getLastName()%></p>
 <%
     }
 %>

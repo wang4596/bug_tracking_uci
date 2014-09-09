@@ -61,7 +61,6 @@ function emailcheck(str) {
 	alert("Invalid E-mail ID")
 	return false
 	}
-	alert("valid E-mail ID")
 	return true 
 }
 
@@ -85,9 +84,24 @@ function ValidateEmail(){
 </script>
 </head>
 <body>
-<form id="resetPasword" name="resetPasword" method="post" action="ForgetPassServlet">
-	<label id="emailIDLabel">Please enter your email address:* </label><input id = "emailID" type="text" name="emailID" /><br/><br/>
-	<input type="submit" value="submit" onclick="ValidateEmail();return false"/>	<input type ="reset" value="Clear"><br />
-</form>
+	
+	<table align = "center" width="70%" border="1">
+		<tr>
+		<td><a href="LoginPage.jsp">Login</a></td>
+		</tr>
+	</table>
+	<h2 align="center">Reset Password:</h2>
+	<table width="40%" style="border: 1px solid black;"  cellpadding="5" cellspacing="5" align="center" >
+			<td>
+				<form id="resetPasword" name="resetPasword" method="post" action="ForgetPassServlet">
+					<tr>
+						<td align="left"><label id="emailIDLabel">Please enter your email address:* </label></td><td><input id = "emailID" type="text" name="emailID" /><br/><br/></td>
+					</tr>
+					<tr>
+						<td align="center"><input type="submit" value="Reset password" onclick="ValidateEmail();return false"/>	<input type ="reset" value="Clear Form"><br /></td>
+					</tr>
+				</form>
+			</td>
+	</table>
 </body>
 </html>

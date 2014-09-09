@@ -55,36 +55,40 @@ function validatePassword(){
 }
 %>
 <div>
-		<a href='/BugTracker/HomePage.jsp'>Home Page</a><br />	
-		<a href='/BugTracker/Logout.jsp'>Log out</a><br />
-		
-	<table>
+	<table align = "center" width="70%" border="1">
 		<tr>
+		<td><a href='/BugTracker/HomePage.jsp'>Home Page</a></td>
+		<td><a href='/BugTracker/Logout.jsp'>Log out</a></td>
+		</tr>
+	</table>
+		
+		
+	<table width="70%" style="border: 1px solid black;"  cellpadding="5" cellspacing="5" align="center" >
 			<td>
 				<form id="updateAccountForm" name="updateAccountForm" method="post" action="UpdateUserServlet">
-					<h2>Update Account Details:</h2>
-					<label>First Name:* </label><input id = "firstname" type="text" value="<%=currentUser.getFirstName()%>" name="firstname" /><br/>
-					<label>Last Name:* </label><input id = "lastname" type="text" value="<%=currentUser.getLastName()%>" name="lastname" /><br/>
-					<label id="emailIDLabel">Email: <%=currentUser.getEmailID()%> </label><br/>
+					<h4>Update Account Details:</h4>
+					<tr><td align="left"><label>First Name:* </label></td><td align="left"><input id = "firstname" type="text" value="<%=currentUser.getFirstName()%>" name="firstname" /><br/></td></tr>
+					<tr><td align="left"><label>Last Name:* </label></td><td align="left"><input id = "lastname" type="text" value="<%=currentUser.getLastName()%>" name="lastname" /><br/></td></tr>
+					<tr><td align="left"><label id="emailIDLabel">Email: </td><td align="left"><%=currentUser.getEmailID()%> </label></td></tr>
 					<INPUT TYPE="HIDDEN" NAME="emailIDHidden" VALUE="<%=currentUser.getEmailID()%>" />
-					<label >Role:* </label>
+					<tr><td align="left"><label >Role:* </label></td><td align="left">
 	            		<select id="roleSelect" name="roleSelect">
 	            			<option value="Help Desk">Help Desk</option>
 	            			<option value="Developer">Developer</option>
-	        			</select><br />
-					<input type="submit" value="Update Account" onclick="validateUpdateAccountForm();return false"/>
+	        			</select><br /></td></tr>
+					<tr><td align="left"><input type="submit" value="Update Account" onclick="validateUpdateAccountForm();return false"/></td></tr>
 				</form>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<form action="UpdateUserPasswordServlet" id="updatePasswordForm" name="updatePasswordForm" method="post">
-					<h2>Update password:</h2>
+					<h4>Update password:</h4>
 					<INPUT TYPE="HIDDEN" NAME="emailID" VALUE="<%=currentUser.getEmailID()%>" />
-					<label>Current Password:* </label><input id = "oldPassword" type="password" name="oldPassword" /><br/><br />
-					<label>New Password:* </label><input id = "newPassword1" type="password" name="newPassword1" /><br/><br/>
-					<label>Re-enter Password:* </label><input id = "newPassword2" type="password" name="newPassword2" /><br/><br/>
-					<input type="submit" value="Update Password" onclick="validatePassword();return false"/>
+					<tr><td align="left"><label>Current Password:* </label></td><td align="left"><input id = "oldPassword" type="password" name="oldPassword" /></td></tr>
+					<tr><td align="left"><label>New Password:* </label></td><td align="left"><input id = "newPassword1" type="password" name="newPassword1" /></td></tr>
+					<tr><td align="left"><label>Re-enter Password:* </label></td><td align="left"><input id = "newPassword2" type="password" name="newPassword2" /></td></tr>
+					<tr><td align="left"><input type="submit" value="Update Password" onclick="validatePassword();return false"/></td></tr>
 				</form>
 			</td>
 		</tr>

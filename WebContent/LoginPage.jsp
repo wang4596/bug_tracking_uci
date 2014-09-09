@@ -91,7 +91,6 @@ function emailcheck(str) {
 	alert("Invalid E-mail ID")
 	return false
 	}
-	alert("valid E-mail ID")
 	return true 
 }
 
@@ -100,34 +99,40 @@ function emailcheck(str) {
 </head>
 <body>
 <div>
-	<table>
-		<tr>
+	<table width="35%" style="border: 1px solid black;"  cellpadding="5" cellspacing="5" align="center" >
 			<td>
 				<form name="loginForm" method="post" action="LoginServlet">
 					<h2>Login:</h2>
-					<label id="emailIDLoginLabel">Email:* </label><input id="emailIDLogin" type="text" name="emailIDLogin" /><br/>
-					<label>Password:* </label><input id="password" type="password" name="password" /><br/>
-					<input type="submit" value="submit" onclick="validateLogin();return false"/>	<input type ="reset" value="Clear Form"><br />
-					<a href="/BugTracker/ForgetPassword.jsp">forget password?</a>
+					<tr>
+						<td align="left"><label id="emailIDLoginLabel">Email:* </label></td><td align="left"><input id="emailIDLogin" type="text" name="emailIDLogin" /></td>
+					</tr>
+						<td align="left"><label>Password:* </label></td><td align="left"><input id="password" type="password" name="password" /></td>
+					<tr>
+						<td align="left"><input type="submit" value="submit" onclick="validateLogin();return false"/>	<input type ="reset" value="Clear Form"><br /></td>
+					</tr>
+					<tr>
+						<td><a href="/BugTracker/ForgetPassword.jsp">forget password?</a></td>
+					</tr>
 				</form>
 			</td>
-			
+	</table>
+	<table width="35%" style="border: 1px solid black;"  cellpadding="5" cellspacing="5" align="center" >
 			<td>
 				<form id="regForm" name="regform" method="post" action="RegisterUserServlet">
 					<h2>Create User:</h2>
-					<label>First Name:* </label><input id = "firstname" type="text" name="firstname" /><br/>
-					<label>Last Name:* </label><input id = "lastname" type="text" name="lastname" /><br/>
-					<label id="emailIDLabel">Email:* </label><input id = "emailID" type="text" name="emailID" /><br/>
-					<label>Password:* </label><input id = "newPassword" type="password" name="newPassword" /><br/>
-					<label >Role:* </label>
+					<tr><td align="left"><label>First Name:* </label></td><td><input id = "firstname" type="text" name="firstname" /><br/></td></tr>
+					<tr><td align="left"><label>Last Name:* </label></td><td><input id = "lastname" type="text" name="lastname" /><br/></td></tr>
+					<tr><td align="left"><label id="emailIDLabel">Email:* </label></td><td><input id = "emailID" type="text" name="emailID" /><br/></td></tr>
+					<tr><td align="left"><label>Password:* </label></td><td><input id = "newPassword" type="password" name="newPassword" /><br/></td></tr>
+					<tr><td align="left"><label >Role:* </label></td><td>
 	            		<select id="roleSelect" name="roleSelect">
 	            			<option value="Help Desk">Help Desk</option>
 	            			<option value="team Lead">Developer</option>
-	        			</select><br />
-					<label>Submit: </label><input type="submit" value="submit" onclick="validateRegistrationForm();return false"/>	<input type ="reset" value="Clear Form">
+	        			</select><br /></td></tr>
+					<tr><td  align="left"><label>Submit: </label></td><td><input type="submit" value="submit" onclick="validateRegistrationForm();return false"/>	<input type ="reset" value="Clear Form"></td></tr>
 				</form>
 			</td>
-		</tr>
+		
 	</table>
 </div>
 <% 
