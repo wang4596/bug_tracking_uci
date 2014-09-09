@@ -1,3 +1,9 @@
+/*
+ * Team D Bug Tracker Project
+ * 8/28/2014  	Saurabh Pandit 		Created File
+ * 9/9/2014		Melissa Stratton	Added Assignee to Tickets table
+ */
+
 create database BugTracker;
 create table BugTracker.Tickets(
 	Id INT NOT NULL AUTO_INCREMENT,
@@ -6,6 +12,7 @@ create table BugTracker.Tickets(
 	Status VARCHAR(40) NOT NULL,
 	ProjectName VARCHAR(200) NOT NULL,
 	Priority VARCHAR(40) NOT NULL,
+	Aassignee VARCHAR(400) NULL,
 	Created_By VARCHAR(400) NOT NULL,
 	Updated_By VARCHAR(400) NOT NULL,
 	Created_Date DATETIME DEFAULT NULL,
@@ -13,6 +20,10 @@ create table BugTracker.Tickets(
 	PRIMARY KEY ( Id )
 	
 );
+/*
+ * If Tickets table already exists and you don't want to drop and create it use following SQL statement to add Assignee field to Tickets table.
+ * ALTER TABLE BugTracker.Tickets ADD COLUMN Assignee VARCHAR(400) NULL AFTER Priority;
+ */
 drop table BugTracker.Users;
 create table BugTracker.Users(
 	emailID VARCHAR(200) NOT NULL,
