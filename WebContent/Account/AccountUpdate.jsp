@@ -73,8 +73,8 @@ function validatePassword(){
 					<INPUT TYPE="HIDDEN" NAME="emailIDHidden" VALUE="<%=currentUser.getEmailID()%>" />
 					<tr><td align="left"><label >Role:* </label></td><td align="left">
 	            		<select id="roleSelect" name="roleSelect">
-	            			<option value="Help Desk">Help Desk</option>
-	            			<option value="Developer">Developer</option>
+	            			<option <%if(currentUser.getRole()!=null && "Help Desk".equalsIgnoreCase(currentUser.getRole().toLowerCase())){%> selected="selected" <%}%> value="Help Desk">Help Desk</option>
+	            			<option <%if(currentUser.getRole()!=null && "Developer".equalsIgnoreCase(currentUser.getRole().toLowerCase())){%> selected="selected" <%}%> value="Developer">Developer</option>
 	        			</select><br /></td></tr>
 					<tr><td align="left"><input type="submit" value="Update Account" onclick="validateUpdateAccountForm();return false"/></td></tr>
 				</form>

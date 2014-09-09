@@ -108,7 +108,7 @@ function emailcheck(str) {
 					</tr>
 						<td align="left"><label>Password:* </label></td><td align="left"><input id="password" type="password" name="password" /></td>
 					<tr>
-						<td align="left"><input type="submit" value="submit" onclick="validateLogin();return false"/>	<input type ="reset" value="Clear Form"><br /></td>
+						<td align="left"></td><td><input type="submit" value="submit" onclick="validateLogin();return false"/>	<input type ="reset" value="Clear Form"><br /></td>
 					</tr>
 					<tr>
 						<td><a href="/BugTracker/ForgetPassword.jsp">forget password?</a></td>
@@ -116,6 +116,7 @@ function emailcheck(str) {
 				</form>
 			</td>
 	</table>
+	<br />
 	<table width="35%" style="border: 1px solid black;"  cellpadding="5" cellspacing="5" align="center" >
 			<td>
 				<form id="regForm" name="regform" method="post" action="RegisterUserServlet">
@@ -129,7 +130,7 @@ function emailcheck(str) {
 	            			<option value="Help Desk">Help Desk</option>
 	            			<option value="team Lead">Developer</option>
 	        			</select><br /></td></tr>
-					<tr><td  align="left"><label>Submit: </label></td><td><input type="submit" value="submit" onclick="validateRegistrationForm();return false"/>	<input type ="reset" value="Clear Form"></td></tr>
+					<tr><td  align="left"></td><td><input type="submit" value="submit" onclick="validateRegistrationForm();return false"/>	<input type ="reset" value="Clear Form"></td></tr>
 				</form>
 			</td>
 		
