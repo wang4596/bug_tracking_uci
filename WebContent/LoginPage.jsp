@@ -6,6 +6,7 @@
 		Team D Bug Tracker Project
 		8/28/2014  	Saurabh Pandit 		Created File
 		9/7/2014	Melissa Stratton	Changed Team Lead role to Developer
+		9/8/2014	Saurabh Pandit 		Added email validation
 -->
 
 <html>
@@ -23,7 +24,13 @@ function validateRegistrationForm(){
 		alert("please enter all the information");
 		return false;
 	}else{
-		//alert("else");
+		if (emailcheck(emailID.value)==false){
+			document.getElementById("emailIDLabel").style.color = "red";
+			document.getElementById("emailIDLabel").style.fontWeight="900";
+			emailID.value=""
+			emailID.focus();
+			return false;
+		}
 		document.regForm.submit();
 	}
 }
@@ -33,12 +40,59 @@ function validateLogin(){
 	var password = document.getElementById("password");
 	if(emailID.value.length<=0 || password.value.length <= 0){
 		alert("please enter all the information");
+		document.getElementById("emailIDLoginLabel").style.color = "red";
+		document.getElementById("emailIDLoginLabel").style.fontWeight="900";		
 		return false;
 	}else{
 		//alert("else");
 		document.loginForm.submit();
 	}
 	
+}
+
+function emailcheck(str) {
+
+	var at="@"
+	var dot="."
+	var lat=str.indexOf(at)
+	var lstr=str.length
+	var ldot=str.indexOf(dot)
+	if (str.indexOf(at)==-1){
+	alert("Invalid E-mail ID")
+	return false
+	}
+
+	if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
+	alert("Invalid E-mail ID")
+	return false
+	}
+
+	if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr){
+	alert("Invalid E-mail ID")
+	return false
+	}
+
+	if (str.indexOf(at,(lat+1))!=-1){
+	alert("Invalid E-mail ID")
+	return false
+	}
+
+	if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
+	alert("Invalid E-mail ID")
+	return false
+	}
+
+	if (str.indexOf(dot,(lat+2))==-1){
+	alert("Invalid E-mail ID")
+	return false
+	}
+
+	if (str.indexOf(" ")!=-1){
+	alert("Invalid E-mail ID")
+	return false
+	}
+	alert("valid E-mail ID")
+	return true 
 }
 
 </script>
@@ -51,8 +105,8 @@ function validateLogin(){
 			<td>
 				<form name="loginForm" method="post" action="LoginServlet">
 					<h2>Login:</h2>
-					Email: <input id="emailIDLogin" type="text" name="emailIDLogin" /><br/>
-					Password: <input id="password" type="password" name="password" /><br/>
+					<label id="emailIDLoginLabel">Email:* </label><input id="emailIDLogin" type="text" name="emailIDLogin" /><br/>
+					<label>Password:* </label><input id="password" type="password" name="password" /><br/>
 					<input type="submit" value="submit" onclick="validateLogin();return false"/>	<input type ="reset" value="Clear Form"><br />
 					<a href="/BugTracker/ForgetPassword.jsp">forget password?</a>
 				</form>
@@ -61,16 +115,16 @@ function validateLogin(){
 			<td>
 				<form id="regForm" name="regform" method="post" action="RegisterUserServlet">
 					<h2>Create User:</h2>
-					First Name:* <input id = "firstname" type="text" name="firstname" /><br/>
-					Last Name:* <input id = "lastname" type="text" name="lastname" /><br/>
-					Email:* <input id = "emailID" type="text" name="emailID" /><br/>
-					Password:* <input id = "newPassword" type="password" name="newPassword" /><br/>
+					<label>First Name:* </label><input id = "firstname" type="text" name="firstname" /><br/>
+					<label>Last Name:* </label><input id = "lastname" type="text" name="lastname" /><br/>
+					<label id="emailIDLabel">Email:* </label><input id = "emailID" type="text" name="emailID" /><br/>
+					<label>Password:* </label><input id = "newPassword" type="password" name="newPassword" /><br/>
 					<label >Role:* </label>
 	            		<select id="roleSelect" name="roleSelect">
 	            			<option value="Help Desk">Help Desk</option>
-	            			<option value="Developer">Developer</option>
+	            			<option value="team Lead">Developer</option>
 	        			</select><br />
-					Submit: <input type="submit" value="submit" onclick="validateRegistrationForm();return false"/>	<input type ="reset" value="Clear Form">
+					<label>Submit: </label><input type="submit" value="submit" onclick="validateRegistrationForm();return false"/>	<input type ="reset" value="Clear Form">
 				</form>
 			</td>
 		</tr>
