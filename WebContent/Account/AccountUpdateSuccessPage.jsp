@@ -22,7 +22,7 @@
 		String msg = request.getAttribute("UPDATE_MSG").toString();
 		%>
 		<div>
-		<%="Update status: "+ msg%>
+		<h2><%="Update status: "+ msg%></h2>
 		</div>
 		<a href='/BugTracker/HomePage.jsp'>Home Page</a><br />
 		<a href='/BugTracker/Account/AccountUpdate.jsp'>Update Account Details</a><br />

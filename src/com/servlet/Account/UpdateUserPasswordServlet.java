@@ -71,6 +71,7 @@ public class UpdateUserPasswordServlet extends HttpServlet{
 	    	log.debug("Current password doesnot match in the database.");
     		request.setAttribute("UPDATE_MSG" , "Error: Current password doesnot match in the database, password was not updated!");
 			RequestDispatcher dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/Account/AccountUpdateSuccessPage.jsp");
+			dispatcher.forward(request,response);
 	    }
 		     
 	}
