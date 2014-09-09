@@ -56,6 +56,7 @@
     <servlet-name>ForgetPassServlet</servlet-name>
     <url-pattern>/ForgetPassServlet</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <description></description>
     <display-name>createTicketServlet</display-name>
@@ -66,6 +67,7 @@
     <servlet-name>createTicketServlet</servlet-name>
     <url-pattern>/createTicketServlet</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <description></description>
     <display-name>OpenTicketsServlet</display-name>
@@ -76,6 +78,7 @@
     <servlet-name>OpenTicketsServlet</servlet-name>
     <url-pattern>/OpenTicketsServlet</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <description></description>
     <display-name>AssignedTicketsServlet</display-name>
@@ -86,4 +89,27 @@
     <servlet-name>AssignedTicketsServlet</servlet-name>
     <url-pattern>/AssignedTicketsServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>UpdateUserServlet</display-name>
+    <servlet-name>UpdateUserServlet</servlet-name>
+    <servlet-class>com.servlet.Account.UpdateUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUserServlet</servlet-name>
+    <url-pattern>/Account/UpdateUserServlet</url-pattern>
+  </servlet-mapping>
+    
+  <servlet>
+    <description></description>
+    <display-name>UpdateUserPasswordServlet</display-name>
+    <servlet-name>UpdateUserPasswordServlet</servlet-name>
+    <servlet-class>com.servlet.Account.UpdateUserPasswordServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUserPasswordServlet</servlet-name>
+    <url-pattern>/Account/UpdateUserPasswordServlet</url-pattern>
+  </servlet-mapping>
+
 </web-app>

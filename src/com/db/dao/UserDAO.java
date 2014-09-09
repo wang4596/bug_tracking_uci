@@ -6,6 +6,7 @@ import com.db.retryable.GetUser;
 import com.db.retryable.IsExistingUser;
 import com.db.retryable.LoginUser;
 import com.db.retryable.ResetUserPassword;
+import com.db.retryable.UpdateUser;
 
 public class UserDAO {
 
@@ -17,6 +18,11 @@ public class UserDAO {
 	public static boolean createUser(UserBean user) throws Exception{	
 		CreateUser newUser = new CreateUser(user);
 		return newUser.registerUser();		
+	}
+	
+	public static boolean updateUser(UserBean user) throws Exception{	
+		UpdateUser updateUser = new UpdateUser(user);
+		return updateUser.updateAccount();		
 	}
 	
 	public static UserBean loginUser(String emailID, String password) throws Exception{

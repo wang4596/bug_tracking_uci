@@ -34,7 +34,8 @@
 	<a href='Logout.jsp'>Log out</a><br />
 	<a href='createTicket.jsp'>Create Ticket</a><br>
 	<a href="OpenTicketsServlet">View All Open Tickets</a><br>
-	<a href='AssignedTicketsServlet'>View Your Assigned Tickets</a>
+	<a href='AssignedTicketsServlet'>View Your Assigned Tickets</a><br />
+	<a href='/BugTracker/Account/AccountUpdate.jsp'>Update Account Details</a>
 <%
     }
 %>
