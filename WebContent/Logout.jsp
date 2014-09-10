@@ -20,8 +20,17 @@ You are not logged in<br/>
     session.invalidate();
 	
 %>
-       <p>Logout was done successfully.</p>
+
+<table align = "center" width="70%" border="1">
+		<tr>			
+			<td><a href="/BugTracker/LoginPage.jsp"><img src="/BugTracker/resources/logo_2.jpg" width="185" height="64" alt="Bug Tracker logo" /></a></td>
+		</tr>
+</table>
+<div align ="center" width="70%">
+       <p>Logout was done successfully...</p>
 		<a href='LoginPage.jsp'>Log in</a><br />
+</div>
+
 <%
     }
 %>

@@ -32,10 +32,16 @@
 		UserBean currentUser = UserDAO.getUser(session.getAttribute("emailID").toString());
 	 
 %>
+		<table align = "center" width="70%" border="1">
+		<tr>			
+			<td><a href="/BugTracker/HomePage.jsp"><img src="/BugTracker/resources/logo_2.jpg" width="185" height="64" alt="Bug Tracker logo" /></a></td>
+			<td align ='center'><a href='createTicket.jsp'>Create Ticket</a></td>
+			<td align ='center'><a href="OpenTicketsServlet">View All Open Tickets</a></td>
+			<td align ='center'><a href='/BugTracker/Account/AccountUpdate.jsp'>Update Account Details</a></td>
+			<td align ='center'><a href='Logout.jsp'>Log out</a></td>
+		</tr>
+	</table>
 		<p>Welcome <%=currentUser.getFirstName()%>, <%=currentUser.getLastName()%></p>
-		<a href='Logout.jsp'>Log out</a><br />
-		<a href='HomePage.jsp'>Home Page</a>
-	
 <%		
 		ArrayList<TicketBean> rows = new ArrayList<TicketBean>(); 
 		rows = (ArrayList<TicketBean>)request.getAttribute("tickets");  

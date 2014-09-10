@@ -32,6 +32,7 @@
 %>
 	<table align = "center" width="70%" border="1">
 		<tr>			
+			<td><a href="/BugTracker/HomePage.jsp"><img src="/BugTracker/resources/logo_2.jpg" width="185" height="64" alt="Bug Tracker logo" /></a></td>
 			<td align ='center'><a href='createTicket.jsp'>Create Ticket</a></td>
 			<td align ='center'><a href="OpenTicketsServlet">View All Open Tickets</a></td>
 			<td align ='center'><a href='AssignedTicketsServlet'>View Your Assigned Tickets</a></td>
@@ -39,6 +40,9 @@
 			<td align ='center'><a href='Logout.jsp'>Log out</a></td>
 		</tr>
 	</table>
+	<div class="bugTrackerLogo">
+		
+	</div>
 	<p align="center">Welcome <%=currentUser.getFirstName()%>, <%=currentUser.getLastName()%></p>
 <%
     }

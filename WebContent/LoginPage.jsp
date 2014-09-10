@@ -98,8 +98,13 @@ function emailcheck(str) {
 
 </head>
 <body>
+	<table align = "left" width="70%" border="1">
+		<tr>
+			<td><a href="/BugTracker/LoginPage.jsp"><img src="/BugTracker/resources/logo_2.jpg" width="185" height="64" alt="Bug Tracker logo" /></a></td>
+		</tr>
+	</table>
 <div>
-	<table width="35%" style="border: 1px solid black;"  cellpadding="5" cellspacing="5" align="center" >
+	<table width="35%" style="border: 1px solid black;"  cellpadding="5" cellspacing="5" align="left" >
 			<td>
 				<form name="loginForm" method="post" action="LoginServlet">
 					<h2>Login:</h2>
@@ -117,7 +122,7 @@ function emailcheck(str) {
 			</td>
 	</table>
 	<br />
-	<table width="35%" style="border: 1px solid black;"  cellpadding="5" cellspacing="5" align="center" >
+	<table width="35%" style="border: 1px solid black;"  cellpadding="5" cellspacing="5" align="left" >
 			<td>
 				<form id="regForm" name="regform" method="post" action="RegisterUserServlet">
 					<h2>Create User:</h2>

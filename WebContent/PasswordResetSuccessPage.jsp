@@ -7,14 +7,20 @@
 <title>Password Reset Successful</title>
 </head>
 <body>
+<table align = "center" width="70%" border="1">
+		<tr>
+		<td><a href="/BugTracker/LoginPage.jsp"><img src="/BugTracker/resources/logo_2.jpg" width="185" height="64" alt="Bug Tracker logo" /></a></td>
+		<td align="right"><a href="LoginPage.jsp">Login</a></td>
+		</tr>
+		</table>
 <% 
 	if ((request.getAttribute("SUCCESS_MSG") != null)) {
 		String msg = request.getAttribute("SUCCESS_MSG").toString();
 		%>
-		<div>
+		<div align="center">
 		<p><%="Password reset update: "+ msg%></p>
-		</div>
 		<br /><a href='LoginPage.jsp'>Log in</a><br />
+		</div>
 		<%
 	}
 %>

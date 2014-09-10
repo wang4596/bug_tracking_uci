@@ -56,13 +56,15 @@ function validatePassword(){
 %>
 <div>
 	<table align = "center" width="70%" border="1">
-		<tr>
-		<td><a href='/BugTracker/HomePage.jsp'>Home Page</a></td>
-		<td><a href='/BugTracker/Logout.jsp'>Log out</a></td>
+		<tr>			
+			<td><a href="/BugTracker/HomePage.jsp"><img src="/BugTracker/resources/logo_2.jpg" width="185" height="64" alt="Bug Tracker logo" /></a></td>
+			<td align ='center'><a href='createTicket.jsp'>Create Ticket</a></td>
+			<td align ='center'><a href="OpenTicketsServlet">View All Open Tickets</a></td>
+			<td align ='center'><a href='AssignedTicketsServlet'>View Your Assigned Tickets</a></td>
+			<td align ='center'><a href='Logout.jsp'>Log out</a></td>
 		</tr>
 	</table>
-		
-		
+	<br />
 	<table width="70%" style="border: 1px solid black;"  cellpadding="5" cellspacing="5" align="center" >
 			<td>
 				<form id="updateAccountForm" name="updateAccountForm" method="post" action="UpdateUserServlet">
@@ -76,7 +78,7 @@ function validatePassword(){
 	            			<option <%if(currentUser.getRole()!=null && "Help Desk".equalsIgnoreCase(currentUser.getRole().toLowerCase())){%> selected="selected" <%}%> value="Help Desk">Help Desk</option>
 	            			<option <%if(currentUser.getRole()!=null && "Developer".equalsIgnoreCase(currentUser.getRole().toLowerCase())){%> selected="selected" <%}%> value="Developer">Developer</option>
 	        			</select><br /></td></tr>
-					<tr><td align="left"><input type="submit" value="Update Account" onclick="validateUpdateAccountForm();return false"/></td></tr>
+					<tr><td></td><td align="left"><input type="submit" value="Update Account" onclick="validateUpdateAccountForm();return false"/></td></tr>
 				</form>
 			</td>
 		</tr>
@@ -88,7 +90,7 @@ function validatePassword(){
 					<tr><td align="left"><label>Current Password:* </label></td><td align="left"><input id = "oldPassword" type="password" name="oldPassword" /></td></tr>
 					<tr><td align="left"><label>New Password:* </label></td><td align="left"><input id = "newPassword1" type="password" name="newPassword1" /></td></tr>
 					<tr><td align="left"><label>Re-enter Password:* </label></td><td align="left"><input id = "newPassword2" type="password" name="newPassword2" /></td></tr>
-					<tr><td align="left"><input type="submit" value="Update Password" onclick="validatePassword();return false"/></td></tr>
+					<tr><td></td><td align="left"><input type="submit" value="Update Password" onclick="validatePassword();return false"/></td></tr>
 				</form>
 			</td>
 		</tr>

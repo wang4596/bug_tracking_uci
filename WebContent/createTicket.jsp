@@ -41,6 +41,15 @@ function validateTicketRequestForm(){
 </script>
 </head>
 <body>
+<table align = "center" width="70%" border="1">
+		<tr>			
+			<td><a href="/BugTracker/HomePage.jsp"><img src="/BugTracker/resources/logo_2.jpg" width="185" height="64" alt="Bug Tracker logo" /></a></td>
+			<td align ='center'><a href="OpenTicketsServlet">View All Open Tickets</a></td>
+			<td align ='center'><a href='AssignedTicketsServlet'>View Your Assigned Tickets</a></td>
+			<td align ='center'><a href='/BugTracker/Account/AccountUpdate.jsp'>Update Account Details</a></td>
+			<td align ='center'><a href='Logout.jsp'>Log out</a></td>
+		</tr>
+	</table>
 <form id="ticketform" name="ticketform" method="post" action="createTicketServlet">
 <input type="submit" value="Save" onclick="validateTicketRequestForm();return false">
 <input type="button" name="cancelbtn" value="Cancel" onClick="">
