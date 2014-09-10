@@ -38,7 +38,7 @@
 			<td align ='center'><a href='createTicket.jsp'>Create Ticket</a></td>
 			<td align ='center'><a href='AssignedTicketsServlet'>View Your Assigned Tickets</a></td>
 			<td align ='center'><a href='/BugTracker/Account/AccountUpdate.jsp'>Update Account Details</a></td>
-			<td align ='center'><a href='Logout.jsp'>Log out</a></td>
+			<td align ='center'><a href='/BugTracker/Logout.jsp'>Log Out</a></td>
 		</tr>
 	</table>
 <%		
