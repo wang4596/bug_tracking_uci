@@ -49,3 +49,17 @@ INSERT INTO BugTracker.Projects (ProjectName) VALUES ("Project 2");
 INSERT INTO BugTracker.Projects (ProjectName) VALUES ("Project 3");
 INSERT INTO BugTracker.Projects (ProjectName) VALUES ("Project 4");
 INSERT INTO BugTracker.Projects (ProjectName) VALUES ("Project 5");
+
+create table BugTracker.Assignee(
+	Id INT NOT NULL AUTO_INCREMENT,
+	Name VARCHAR(100) NOT NULL,
+	AssigneeEmail VARCHAR(100) NOT NULL,
+	PRIMARY KEY ( Id )
+	
+);
+
+INSERT INTO BugTracker.Assignee (Name,AssigneeEmail) VALUES ("Mary Wang","test1@gmail.com");
+INSERT INTO BugTracker.Assignee (Name,AssigneeEmail) VALUES ("Saurabh Pandit","test2@gmail.com");
+INSERT INTO BugTracker.Assignee (Name,AssigneeEmail) VALUES ("Melissa Stratton","test3@gmail.com");
+INSERT INTO BugTracker.Assignee (Name,AssigneeEmail) VALUES ("Hema Omprakash","test4@gmail.com");
+INSERT INTO BugTracker.Assignee (Name,AssigneeEmail) VALUES ("Eric Tserng","test5@gmail.com");
