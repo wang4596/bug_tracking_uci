@@ -24,7 +24,7 @@ create table BugTracker.Tickets(
  * If Tickets table already exists and you don't want to drop and create it use following SQL statement to add Assignee field to Tickets table.
  * ALTER TABLE BugTracker.Tickets ADD COLUMN Assignee VARCHAR(400) NULL AFTER Priority;
  */
-drop table BugTracker.Users;
+
 create table BugTracker.Users(
 	emailID VARCHAR(200) NOT NULL,
 	firstname VARCHAR(40),
@@ -41,6 +41,9 @@ create table BugTracker.Projects(
 	ProjectName VARCHAR(200) NOT NULL,
 	PRIMARY KEY ( Id )
 );
+CREATE USER 'BugtrackerAdmin'@'localhost' IDENTIFIED BY 'Admin123';
+GRANT ALL PRIVILEGES ON *.* TO 'BugtrackerAdmin'@'localhost';
+
 INSERT INTO BugTracker.Projects (ProjectName) VALUES ("Project 1");
 INSERT INTO BugTracker.Projects (ProjectName) VALUES ("Project 2");
 INSERT INTO BugTracker.Projects (ProjectName) VALUES ("Project 3");
