@@ -11,10 +11,10 @@ import javax.servlet.http.HttpSession;
 
 import com.beans.TicketBean;
 import com.db.dao.TicketDAO;
-
+import com.util.*;
 
 public class createTicketServlet extends HttpServlet{
-
+   
 	private static final long serialVersionUID = 1L;
 	
 	@Override
@@ -29,6 +29,8 @@ public class createTicketServlet extends HttpServlet{
 		String priority = request.getParameter("priority");
 		String summary = request.getParameter("summary");
 		String description = request.getParameter("description");
+		String assigneeEmail = request.getParameter("assignee");
+		String clientEmail = request.getParameter("clientEmail");
 		
 		try{
 	    	   	//Creating new ticket in the Databases
@@ -41,8 +43,23 @@ public class createTicketServlet extends HttpServlet{
 		    	newTicket.setDescription(description);
 		    	newTicket.setCreatedBy(firstname + "" +lastname);
 		    	newTicket.setUpdatedBy(firstname + "" +lastname);
+		    	newTicket.setAssignee(assigneeEmail);
+		    	newTicket.setClientEmail(clientEmail);
 		    	try{
 		    		ticketCreated = TicketDAO.createTicket(newTicket);
+		    		String subject ="";
+		    		String emailBody ="";
+		    		PropFileUtil.load();
+		    		subject = "Your defect request has been submitted";
+		    		emailBody = "We will be in touch with you if there are any questions.";
+		    		SendEmail sendEmailClient = new SendEmail(clientEmail, subject, emailBody);
+		    		sendEmailClient.run();
+		    		
+		    		subject = "New request";
+		    		emailBody = "A new request has been assigned to you. Please check your open tickets list";
+		    		SendEmail sendEmailAssignee = new SendEmail(clientEmail, subject, emailBody);
+		    		sendEmailAssignee.run();
+		    		
 		    	}catch(Exception ex){
 		    		System.out.println("Error creating new ticket: "+ ex.getMessage());
 		    		ex.printStackTrace();
@@ -50,7 +67,7 @@ public class createTicketServlet extends HttpServlet{
 		    	
 		    	if(ticketCreated){
 		    		//Success-Forward to ticket list Page
-		    		RequestDispatcher dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/ListTickets.jsp");
+		    		RequestDispatcher dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/HomePage.jsp");
 		            dispatcher.forward(request,response);
 		    	}else{
 		    		//New ticket not created, alert user with error message!
@@ -60,7 +77,7 @@ public class createTicketServlet extends HttpServlet{
 		    	}
 		    
 	    }catch(Exception ex){
-	    	System.out.println("Error creating new user: "+ ex.getMessage());
+	    	System.out.println("Error creating new ticket: "+ ex.getMessage());
 	    	ex.printStackTrace();
 	    }        
 	}
@@ -70,7 +87,21 @@ public class createTicketServlet extends HttpServlet{
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		System.out.println("This is a test");
+		TicketBean newTicket = new TicketBean();
+    	newTicket.setProject("Project 1");
+    	newTicket.setStatus("Open");
+    	newTicket.setPriority("Medium");
+    	newTicket.setSummary("Summary");
+    	newTicket.setDescription("description");
+    	newTicket.setCreatedBy("test");
+    	newTicket.setUpdatedBy("test");
+    	try {
+			TicketDAO.createTicket(newTicket);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

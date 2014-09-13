@@ -17,7 +17,8 @@ public class TicketBean {
 		private String createdBy;
 		private String updatedBy;
 		private String assignee;
-		
+		private String clientEmail;
+		  
 		public int getId() {
 			return id;
 		}
@@ -72,4 +73,11 @@ public class TicketBean {
 		public void setAssignee(String assignee) {
 			this.assignee = assignee;
 		}
-}
+		public String getClientEmail(){
+			return clientEmail;
+		}
+		public void setClientEmail(String clientEmail){
+			this.clientEmail = clientEmail;
+		}
+	
+} 

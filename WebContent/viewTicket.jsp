@@ -4,11 +4,12 @@
 <%@page import="java.util.*"%>
 <%@page import="java.util.Map.Entry" %>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>New Defect Request</title>
+<title>View Defect Request</title>
 <script>
 
 function validateTicketRequestForm(){
@@ -59,10 +60,10 @@ function validateTicketRequestForm(){
 <input type="submit" value="Save" onclick="validateTicketRequestForm();return false">
 <input type="button" name="cancelbtn" value="Cancel" onclick="window.location.href='OpenTicketsServlet'">
 <table width="75%" border="1" cellpadding="10" cellspacing="10" align="center" >
-<h1>New Defect Request</h1>
+<h1>View Defect Request</h1>
 <tr>
 <td>Defect Number</td>
-<td></td></tr>
+<td><%=request.getAttribute("id")%></td></tr>
 <tr>
 <td>Project</td>
 <td>
@@ -135,14 +136,14 @@ try {
 </select></td></tr>
 <tr>
 <td>Client Email</td>
-<td><input type="text" id="clientEmail" name="clientEmail"></td></tr>
+<td><input type="text" id="clientEmail" name="clientEmail" value="<%=request.getAttribute("clientEmail") %>"></td></tr>
 <tr>
 <td>Summary</td>
-<td><textarea id="summary" name="summary"></textarea></td>
+<td><textarea id="summary" name="summary"><%=request.getAttribute("summary")%></textarea></td>
 </tr>
 <tr>
 <td>Description</td>
-<td><textarea id="description" name="description"></textarea></td></tr>
+<td><textarea id="description" name="description"><%=request.getAttribute("description")%></textarea></td></tr>
 </table>
 </form>
 </body>

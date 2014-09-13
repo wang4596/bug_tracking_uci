@@ -4,6 +4,7 @@
 		8/28/2014  	Saurabh Pandit 		Created File
 		9/7/2014	Hema Omprakash	Added createTicketServlet
 		9/7/2014	Melissa Stratton	Added OpenTicketsServlet and AssignedTicketsServlet
+		9/12/2014   Hema Omprakash Added ViewTicketServlet
 		
 -->
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
@@ -110,6 +111,16 @@
   <servlet-mapping>
     <servlet-name>UpdateUserPasswordServlet</servlet-name>
     <url-pattern>/Account/UpdateUserPasswordServlet</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>ViewTicketServlet</display-name>
+    <servlet-name>ViewTicketServlet</servlet-name>
+    <servlet-class>com.servlet.ViewTicketServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewTicketServlet</servlet-name>
+    <url-pattern>/ViewTicketServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

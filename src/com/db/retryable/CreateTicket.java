@@ -11,9 +11,9 @@ import java.util.Date;
 public class CreateTicket {
 	
 	private TicketBean newTicket = new TicketBean();
-	
+	 
 	public CreateTicket(TicketBean ticket){
-		
+		 
 		newTicket.setProject(ticket.getProject());
 		newTicket.setStatus(ticket.getStatus());
 		newTicket.setDescription(ticket.getDescription());
@@ -21,16 +21,18 @@ public class CreateTicket {
 		newTicket.setPriority(ticket.getPriority());
 		newTicket.setCreatedBy(ticket.getCreatedBy());
 		newTicket.setUpdatedBy(ticket.getUpdatedBy());
+		newTicket.setAssignee(ticket.getAssignee());
+		newTicket.setClientEmail(ticket.getClientEmail());
 	}
-	
+	 
 	public boolean insertTicket() throws SQLException{
 		Connection connection = DatabaseConnection.getConnection();
 		String sqlQuery = null;
         	PreparedStatement statement = null;
         	int rowCount = 0;        		
 
-        	sqlQuery = "INSERT INTO BugTracker.Tickets(ProjectName,Status, Description, Summary, Priority, Created_Date, Updated_Date,Created_by,Updated_by) " +
-        		"VALUES(?,?,?,?,?,?,?,?,?)";
+        	sqlQuery = "INSERT INTO BugTracker.Tickets(ProjectName,Status, Description, Summary, Priority, Created_Date, Updated_Date,Created_by,Updated_by, Assignee, ClientEmail) " +
+        		"VALUES(?,?,?,?,?,?,?,?,?,?,?)";
        
         	statement = connection.prepareStatement(sqlQuery);
         	statement.setString(1, newTicket.getProject());
@@ -42,6 +44,8 @@ public class CreateTicket {
         	statement.setTimestamp(7, new Timestamp(new Date().getTime()));
         	statement.setString(8, newTicket.getCreatedBy());
         	statement.setString(9, newTicket.getUpdatedBy());
+        	statement.setString(10, newTicket.getAssignee());
+        	statement.setString(11, newTicket.getClientEmail());
         	rowCount = statement.executeUpdate();
         	if(rowCount == 1){
         	return true;
@@ -60,6 +64,9 @@ public class CreateTicket {
 		ticket.setProject("Project 1");
 		ticket.setStatus("Open");
 		ticket.setSummary("summary");
+		ticket.setAssignee("assignee 1");
+		ticket.setCreatedBy("Hema");
+		ticket.setUpdatedBy("Hema");
 		CreateTicket newTicket = new CreateTicket(ticket);
 		
 		try {
