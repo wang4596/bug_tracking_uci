@@ -122,5 +122,15 @@
     <servlet-name>ViewTicketServlet</servlet-name>
     <url-pattern>/ViewTicketServlet</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>updateTicketServlet</display-name>
+    <servlet-name>updateTicketServlet</servlet-name>
+    <servlet-class>com.servlet.updateTicketServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateTicketServlet</servlet-name>
+    <url-pattern>/updateTicketServlet</url-pattern>
+  </servlet-mapping>
 
 </web-app>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="com.db.retryable.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.util.Map.Entry" %>
@@ -56,7 +55,7 @@ function validateTicketRequestForm(){
 			<td align ='center'><a href='Logout.jsp'>Log out</a></td>
 		</tr>
 	</table>
-<form id="ticketform" name="ticketform" method="post" action="createTicketServlet">
+<form id="ticketform" name="ticketform" method="post" action="updateTicketServlet">
 <input type="submit" value="Save" onclick="validateTicketRequestForm();return false">
 <input type="button" name="cancelbtn" value="Cancel" onclick="window.location.href='OpenTicketsServlet'">
 <table width="75%" border="1" cellpadding="10" cellspacing="10" align="center" >
@@ -69,14 +68,20 @@ function validateTicketRequestForm(){
 <td>
 <select id="project" name="project">
 <%
+String projAttr = request.getAttribute("project").toString();
+
 ArrayList<String> projects = new ArrayList<String>();
 GetProjects g =  new GetProjects();
 try {
 	projects = g.listAllProjects();
 	int i=1;
-	for(String d:projects) {
-		out.println("<option value='"+i+"'>"+d+"</option>");
-  		i++;
+	for(String p:projects) {
+		if(p.equals(projAttr)){
+			out.println("<option value='"+i+"' selected>"+p+"</option>");
+		}else{
+			out.println("<option value='"+i+"'>"+p+"</option>");
+		}
+		i++;
     }
 
 } catch (Exception e) {
@@ -89,25 +94,25 @@ try {
 <tr>
 <td>Status</td>
 <td><select id="status" name="status">
-   <option value="1">Open</option>
-   <option value="2">Closed</option>
-   <option value="3">Duplicate</option>
+   <option value="Open">Open</option>
+   <option value="Closed">Closed</option>
+   <option value="Duplicate">Duplicate</option>
 </select>
 </td></tr>
 <tr>
 <td>Priority</td>
 <td><select id="priority" name="priority">
-   <option value="1">Medium</option>
-   <option value="2">High</option>
-   <option value="3">Low</option>
-   <option value="4">Critical</option>
+   <option value="Medium">Medium</option>
+   <option value="High">High</option>
+   <option value="low">Low</option>
+   <option value="Critical">Critical</option>
 </select></td></tr>
 <tr>
 <tr>
 <td>Assignee</td>
 <td><select id="assignee" name="assignee">
  <%
- 
+ String assignAttr = request.getAttribute("assignee").toString();
  HashMap<String, String> assignee = new HashMap<String, String>();
 	
 	GetAssignee a =  new GetAssignee();
@@ -118,7 +123,12 @@ try {
 	    Iterator<Entry<String, String>> i = set.iterator();
 	    while(i.hasNext()) {
 	         Entry<String, String> entry = i.next();
-	         out.println("<option value='"+entry.getKey()+"'>"+entry.getValue()+"</option>");
+	         if(entry.getValue().equals(assignAttr)){
+	        	 out.println("<option value='"+entry.getKey()+"' selected>"+entry.getValue()+"</option>");
+	         }
+	         else{
+	         	out.println("<option value='"+entry.getKey()+"'>"+ entry.getValue()+"</option>");
+	         }
 	    }
 		
 		//for(String d:assignee) {
@@ -145,6 +155,7 @@ try {
 <td>Description</td>
 <td><textarea id="description" name="description"><%=request.getAttribute("description")%></textarea></td></tr>
 </table>
+<input type="hidden" id="ticketid" name="ticketid" value="<%=request.getAttribute("id")%>">
 </form>
 </body>
 </html>

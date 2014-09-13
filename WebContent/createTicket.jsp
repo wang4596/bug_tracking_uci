@@ -88,18 +88,18 @@ try {
 <tr>
 <td>Status</td>
 <td><select id="status" name="status">
-   <option value="1">Open</option>
-   <option value="2">Closed</option>
-   <option value="3">Duplicate</option>
+   <option value="Open">Open</option>
+   <option value="Closed">Closed</option>
+   <option value="Duplicate">Duplicate</option>
 </select>
 </td></tr>
 <tr>
 <td>Priority</td>
 <td><select id="priority" name="priority">
-   <option value="1">Medium</option>
-   <option value="2">High</option>
-   <option value="3">Low</option>
-   <option value="4">Critical</option>
+   <option value="Medium">Medium</option>
+   <option value="High">High</option>
+   <option value="Low">Low</option>
+   <option value="Critical">Critical</option>
 </select></td></tr>
 <tr>
 <tr>

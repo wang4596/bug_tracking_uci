@@ -12,7 +12,7 @@ import com.db.retryable.*;
 public class ViewTicketServlet extends HttpServlet{
    
 	private static final long serialVersionUID = 1L;
-	
+	 
 	
 	public ViewTicketServlet() {
 		super();
@@ -49,7 +49,7 @@ public class ViewTicketServlet extends HttpServlet{
 		    		request.setAttribute("id", newTicket.getId());
 		    		request.setAttribute("assignee", newTicket.getAssignee());
 		    		request.setAttribute("clientEmail", newTicket.getClientEmail());
-		    		request.setAttribute("Summary", newTicket.getSummary());
+		    		request.setAttribute("summary", newTicket.getSummary());
 		    		request.setAttribute("description", newTicket.getDescription());
 		    		request.setAttribute("status", newTicket.getStatus());
 		    		request.setAttribute("project", newTicket.getProject());
