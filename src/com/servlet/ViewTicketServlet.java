@@ -2,17 +2,12 @@ package com.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
+import javax.servlet.*;
+import javax.servlet.http.*;
 import com.beans.TicketBean;
 import com.db.dao.TicketDAO;
 import com.db.retryable.*;
-import com.util.*;
+
 
 public class ViewTicketServlet extends HttpServlet{
    
@@ -29,9 +24,8 @@ public class ViewTicketServlet extends HttpServlet{
 
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{	
-		response.setContentType("text/html");
-		response.setCharacterEncoding("utf-8");
-		String id = request.getParameter("ticketID");
+		
+		String id = request.getParameter("ticketId");
 				
 		try{
 	    	   	//Retrieving the ticket from the Database
@@ -51,6 +45,7 @@ public class ViewTicketServlet extends HttpServlet{
 		    	
 		    	if(ticketRetrieved){
 		    		//Success-Forward to view Ticket Page
+		    		RequestDispatcher dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/viewTicket.jsp");
 		    		request.setAttribute("id", newTicket.getId());
 		    		request.setAttribute("assignee", newTicket.getAssignee());
 		    		request.setAttribute("clientEmail", newTicket.getClientEmail());
@@ -59,8 +54,7 @@ public class ViewTicketServlet extends HttpServlet{
 		    		request.setAttribute("status", newTicket.getStatus());
 		    		request.setAttribute("project", newTicket.getProject());
 		    		request.setAttribute("priority", newTicket.getPriority());
-		    		RequestDispatcher dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/viewTicket.jsp");
-		            dispatcher.forward(request,response);
+		    		dispatcher.forward(request,response);
 		    	}else{
 		    		//New ticket not created, alert user with error message!
 		    		request.setAttribute("ERROR_MSG" , "Ticket not retrieved.");
@@ -84,6 +78,7 @@ public class ViewTicketServlet extends HttpServlet{
     	newTicket.setProject("Project 1");
     	newTicket.setStatus("Open");
     	newTicket.setPriority("Medium");
+    	newTicket.setAssignee("Mary Wang");
     	newTicket.setSummary("Summary");
     	newTicket.setDescription("description");
     	newTicket.setCreatedBy("test");
