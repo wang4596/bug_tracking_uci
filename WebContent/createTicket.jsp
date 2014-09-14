@@ -55,10 +55,14 @@ function validateTicketRequestForm(){
 		</tr>
 	</table>
 <form id="ticketform" name="ticketform" method="post" action="createTicketServlet">
+<table width="75%" border="0" cellpadding="10" cellspacing="10" align="center" >
+<tr><td>
 <input type="submit" value="Save" onclick="validateTicketRequestForm();return false">
 <input type="button" name="cancelbtn" value="Cancel" onclick="window.location.href='OpenTicketsServlet'">
+</td></tr>
+</table>
 <table width="75%" border="1" cellpadding="10" cellspacing="10" align="center" >
-<h1>New Defect Request</h1>
+<center><h1>New Defect Request</h1></center>
 <tr>
 <td>Defect Number</td>
 <td></td></tr>

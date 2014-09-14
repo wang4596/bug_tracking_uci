@@ -34,7 +34,7 @@ public class updateTicketServlet extends HttpServlet{
 		String description = request.getParameter("description");
 		String assigneeEmail = request.getParameter("assignee");
 		String clientEmail = request.getParameter("clientEmail");
-		 
+				 
 		try{
 	    	   	//Creating new ticket in the Databases
 		    	boolean ticketCreated = false;
@@ -55,16 +55,16 @@ public class updateTicketServlet extends HttpServlet{
 		    		
 		    		PropFileUtil.load();
 		    		StringBuilder emailBody = new StringBuilder("");
-					emailBody.append("Hello,");
+		    		emailBody.append("Hello,");
 					emailBody.append("\n");
 					emailBody.append("We will be in touch with you if there are any questions.");
-					SendMailTLS.SendEmail(PropFileUtil.getValue("MAIL_USERNAME"), clientEmail, "Your defect request has been submitted", emailBody.toString());
+					SendMailTLS.SendEmail(PropFileUtil.getValue("MAIL_USERNAME"), clientEmail, "Your defect request#"+ticketid+" has been updated", emailBody.toString());
 		    		
 					emailBody = new StringBuilder("");
 					emailBody.append("Hello,");
 					emailBody.append("\n");
-					emailBody.append("A new request has been assigned to you. Please check your open tickets list");
-					SendMailTLS.SendEmail(PropFileUtil.getValue("MAIL_USERNAME"), assigneeEmail, "New request", emailBody.toString());
+					emailBody.append("Request# "+ticketid+" has been assigned to you. Please check your open tickets list");
+					SendMailTLS.SendEmail(PropFileUtil.getValue("MAIL_USERNAME"), assigneeEmail, "Your defect request#"+ticketid+" has been updated" , emailBody.toString());
 		    		
 		    		
 		    	}catch(Exception ex){

@@ -3,16 +3,14 @@
 <%@page import="java.util.*"%>
 <%@page import="java.util.Map.Entry" %>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>View Defect Request</title>
 <script>
-
 function validateTicketRequestForm(){
-	 
+/*	 
 	var idx = document.getElementById("project").selectedIndex;
 	if(idx == 0){
 		alert("Please select a project");
@@ -20,14 +18,13 @@ function validateTicketRequestForm(){
 	}
 	
 	var project = document.getElementById("project").options[idx].text;
-	
-	
+		
 	idx = document.getElementById("status").selectedIndex;
 	var project = document.getElementById("status").options[idx].text;
 	
 	idx = document.getElementById("priority").selectedIndex;
 	var project = document.getElementById("priority").options[idx].text;
-	
+*/	
 	var summary = document.getElementById("summary").value;	
 	if(summary == ""){
 		alert("Please enter summary");
@@ -56,10 +53,14 @@ function validateTicketRequestForm(){
 		</tr>
 	</table>
 <form id="ticketform" name="ticketform" method="post" action="updateTicketServlet">
+<table width="75%" border="0" cellpadding="10" cellspacing="10" align="center" >
+<tr><td>
 <input type="submit" value="Save" onclick="validateTicketRequestForm();return false">
 <input type="button" name="cancelbtn" value="Cancel" onclick="window.location.href='OpenTicketsServlet'">
+</td></tr>
+</table>
 <table width="75%" border="1" cellpadding="10" cellspacing="10" align="center" >
-<h1>View Defect Request</h1>
+<center><h1>View Defect Request</h1></center>
 <tr>
 <td>Defect Number</td>
 <td><%=request.getAttribute("id")%></td></tr>
@@ -94,18 +95,38 @@ try {
 <tr>
 <td>Status</td>
 <td><select id="status" name="status">
-   <option value="Open">Open</option>
-   <option value="Closed">Closed</option>
-   <option value="Duplicate">Duplicate</option>
+<%
+String status = request.getAttribute("status").toString();
+String s[] = {"Open", "Closed", "Duplicate"}; 
+
+for (int i=0; i<s.length; i++){
+	 if(s[i].equals(status)){
+    	 out.println("<option value='"+s[i]+"' selected>"+s[i]+"</option>");
+     }
+     else{
+     	out.println("<option value='"+s[i]+"'>"+s[i]+"</option>");
+     }
+}
+%>
 </select>
 </td></tr>
 <tr>
 <td>Priority</td>
 <td><select id="priority" name="priority">
-   <option value="Medium">Medium</option>
-   <option value="High">High</option>
-   <option value="low">Low</option>
-   <option value="Critical">Critical</option>
+
+<%
+String priority = request.getAttribute("priority").toString();
+String p[] = {"Medium", "High", "Low", "Critical"}; 
+
+for (int i=0; i<p.length; i++){
+	 if(p[i].equals(priority)){
+    	 out.println("<option value='"+p[i]+"' selected>"+p[i]+"</option>");
+     }
+     else{
+     	out.println("<option value='"+p[i]+"'>"+p[i]+"</option>");
+     }
+}
+%>
 </select></td></tr>
 <tr>
 <tr>
@@ -129,12 +150,7 @@ try {
 	         else{
 	         	out.println("<option value='"+entry.getKey()+"'>"+ entry.getValue()+"</option>");
 	         }
-	    }
-		
-		//for(String d:assignee) {
-         //System.out.println(d);
-         
-     //}
+	    }	
 
 	} catch (Exception e) {
 		
