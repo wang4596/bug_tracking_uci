@@ -31,14 +31,14 @@ public class GetAssignee {
 
 		try {
 			connection = DatabaseConnection.getConnection();
-			String sqlQuery = "Select * from BugTracker.Assignee";
+			String sqlQuery = "Select * from BugTracker.Users";
 	        statement = connection.prepareStatement(sqlQuery);
 			ResultSet results = statement.executeQuery();
 			if (results != null) {
 				while (results.next()) {
-					if(results.getString("Name") != null){
-						name = results.getString("Name");
-						email = results.getString("AssigneeEmail");
+					if(results.getString("firstname") != null){
+						name = results.getString("firstname") + " "+ results.getString("lastname");
+						email = results.getString("emailID");
 						//assignee.add(name);
 						assignee.put(email, name);
 					}
