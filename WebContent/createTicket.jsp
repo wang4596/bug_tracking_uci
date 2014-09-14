@@ -12,7 +12,7 @@
 <script>
 
 function validateTicketRequestForm(){
-	 
+	/* 
 	var idx = document.getElementById("project").selectedIndex;
 	if(idx == 0){
 		alert("Please select a project");
@@ -21,13 +21,12 @@ function validateTicketRequestForm(){
 	
 	var project = document.getElementById("project").options[idx].text;
 	
-	
 	idx = document.getElementById("status").selectedIndex;
 	var project = document.getElementById("status").options[idx].text;
 	
 	idx = document.getElementById("priority").selectedIndex;
 	var project = document.getElementById("priority").options[idx].text;
-	
+	*/
 	var summary = document.getElementById("summary").value;	
 	if(summary == ""){
 		alert("Please enter summary");
