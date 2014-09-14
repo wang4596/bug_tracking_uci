@@ -63,3 +63,9 @@ INSERT INTO BugTracker.Assignee (Name,AssigneeEmail) VALUES ("Saurabh Pandit","t
 INSERT INTO BugTracker.Assignee (Name,AssigneeEmail) VALUES ("Melissa Stratton","test3@gmail.com");
 INSERT INTO BugTracker.Assignee (Name,AssigneeEmail) VALUES ("Hema Omprakash","test4@gmail.com");
 INSERT INTO BugTracker.Assignee (Name,AssigneeEmail) VALUES ("Eric Tserng","test5@gmail.com");
+
+ALTER TABLE BugTracker.Tickets CHANGE Aassignee Assignee VARCHAR(400);
+ALTER TABLE BugTracker.Tickets ADD COLUMN ClientEmail VARCHAR(100) NULL AFTER Assignee;
+
+
+
