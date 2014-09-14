@@ -20,7 +20,7 @@ public class GetAssignee {
 	
 	//public ArrayList<String> listAllAssignee()throws Exception {
 	public HashMap<String,String> listAllAssignee()throws Exception {
-		
+		 
 		log.debug("Entering method listAllAssignee() inside file GetAssignee");
 		Connection connection = null;
 		PreparedStatement statement = null;    
@@ -31,7 +31,7 @@ public class GetAssignee {
 
 		try {
 			connection = DatabaseConnection.getConnection();
-			String sqlQuery = "Select * from BugTracker.Users";
+			String sqlQuery = "Select * from BugTracker.Users where role = 'team lead'";
 	        statement = connection.prepareStatement(sqlQuery);
 			ResultSet results = statement.executeQuery();
 			if (results != null) {
