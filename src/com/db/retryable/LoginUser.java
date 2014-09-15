@@ -15,12 +15,12 @@ public class LoginUser {
 	private String password = null;
 	UserBean loggedInUser = null;
 	private static Logger log = Logger.getLogger(LoginUser.class.getName());
-	
+	 
 	public LoginUser(String emailID, String password){
 		this.emailID = emailID;
 		this.password = password;
 	}
-
+ 
 	public UserBean loginUser() throws Exception{
 		Connection connection = DatabaseConnection.getConnection();
 		try {
@@ -46,7 +46,7 @@ public class LoginUser {
 							loggedInUser.setLastName(results.getString("lastname"));
 						}
 						if(results.getString("role") != null){
-							loggedInUser.setLastName(results.getString("role"));
+							loggedInUser.setRole(results.getString("role"));
 						}
 					}else{
 						log.debug("EmailID or password doesnot match the database, please try again.");
