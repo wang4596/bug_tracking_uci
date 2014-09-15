@@ -14,7 +14,6 @@ import com.beans.UserBean;
 import com.db.dao.UserDAO;
 import com.util.PasswordEncrypt;
 import com.util.PropFileUtil;
-import com.util.SendEmail;
 import com.util.SendMailTLS;
 
 public class ForgetPassServlet extends HttpServlet{
